@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>🎁 Chá de Casa Nova - Davi & Gabriel🎁</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; }
+  body { background: linear-gradient(135deg, #6a11cb, #2575fc); color: #fff; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+  .container { background: #ffffffdd; color: #333; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); padding: 30px 25px; max-width: 420px; width: 100%; text-align: center; animation: fadeIn 1s ease; }
+  h1 { font-size: 1.8rem; margin-bottom: 5px; color: #2575fc; }
+  h2 { font-size: 1.2rem; margin-bottom: 15px; color: #444; }
+  p.subtitle { font-size: 1rem; margin-bottom: 20px; color: #555; }
+  label { display: block; text-align: left; margin: 12px 0 6px; font-weight: bold; color: #444; }
+  input { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ccc; font-size: 1rem; outline: none; text-transform: uppercase; transition: 0.3s; }
+  input:focus { border-color: #2575fc; box-shadow: 0 0 6px #2575fc55; }
+
+  /* Custom select */
+  .custom-select-wrapper { position: relative; width: 100%; margin-top: 5px; }
+  .custom-select { background: linear-gradient(135deg, #2575fc, #6a11cb); color: #fff; font-weight: bold; border-radius: 10px; cursor: pointer; padding: 12px; user-select: none; }
+  .custom-select:after { content: "▼"; float: right; margin-right: 10px; }
+  .custom-options { position: absolute; top: 100%; left: 0; right: 0; background: linear-gradient(135deg, #2575fc, #6a11cb); border-radius: 0 0 10px 10px; max-height: 200px; overflow-y: auto; display: none; z-index: 10; color: #fff; }
+  .custom-option { padding: 12px; cursor: pointer; color: #fff; }
+  .custom-option:hover { background: rgba(255,255,255,0.2); }
+
+  .contador { margin-top: 20px; padding: 14px; border-radius: 12px; background: linear-gradient(135deg, #ff9966, #ff5e62); color: #fff; font-size: 1rem; font-weight: bold; box-shadow: 0 6px 15px rgba(0,0,0,0.2); }
+  button { width: 100%; padding: 14px; margin-top: 20px; border: none; border-radius: 12px; background: linear-gradient(135deg, #2575fc, #6a11cb); color: #fff; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: 0.3s; }
+  button:hover { transform: scale(1.05); box-shadow: 0 6px 15px rgba(0,0,0,0.2); }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 500px) { .container { padding: 25px 20px; } h1 { font-size: 1.5rem; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>🎉 Chá de Casa Nova 🎉</h1>
+  <h2>💙 Helena & Dário 💙</h2>
+  <p class="subtitle">Preencha seus dados e escolha um presente:</p>
+
+  <form id="formPresente">
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" required>
+
+    <label for="sobrenome">Sobrenome</label>
+    <input type="text" id="sobrenome" required>
+
+    <label for="presente">Escolha um presente</label>
+    <div class="custom-select-wrapper">
+      <div class="custom-select" id="customSelect">Selecione um presente</div>
+      <div class="custom-options" id="customOptions"></div>
+    </div>
+
+    <div id="contador" class="contador">🎁 Presentes disponíveis: 0</div>
+
+    <button type="submit">Confirmar Presença 💝</button> </br></br>
+
+    <p class="subtitle">Início: Às 17h00min!</p>
+    <p class="subtitle">Endereço: Espaço Festejar Fortaleza, Rua C, 67 - Parque Dois Irmãos, Fortaleza - CE, 60540-272</p>
+   
+
+    <center>
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3981.031305155578!2d-38.5495781!3d-3.803308!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c74e6476f93dcb%3A0xccf8b1f6182eb8cd!2sEspa%C3%A7o%20Festejar%20Fortaleza!5e0!3m2!1spt-BR!2sbr!4v1757277781101!5m2!1spt-BR!2sbr" 
+    width="100%" 
+    height="450" 
+    style="max-width: 600px; border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</center>
+
+</div>
+
+<script>
+const apiUrl = "https://script.google.com/macros/s/AKfycbxJrYqxMbESJqzezMblq6Cb2UTeQ-QoCdxeeGnKujWXyl7xpq5Xit41jkUl8_U5Ql4SMw/exec";
+let presenteSelecionado = null;
+
+async function carregarPresentes() {
+  try {
+    const res = await fetch(apiUrl);
+    const dados = await res.json();
+    const presentes = Array.isArray(dados) ? dados : dados.presentes || [];
+
+    const optionsDiv = document.getElementById("customOptions");
+    optionsDiv.innerHTML = "";
+    presentes.forEach(p => {
+      const div = document.createElement("div");
+      div.classList.add("custom-option");
+      div.textContent = p;
+      div.addEventListener("click", () => {
+        presenteSelecionado = p;
+        document.getElementById("customSelect").textContent = p;
+        optionsDiv.style.display = "none";
+      });
+      optionsDiv.appendChild(div);
+    });
+
+    document.getElementById("contador").textContent = `🎁 Presentes disponíveis: ${presentes.length}`;
+  } catch(err) { console.error("Erro ao carregar dados:", err); }
+}
+
+// Toggle dropdown
+document.getElementById("customSelect").addEventListener("click", () => {
+  const optionsDiv = document.getElementById("customOptions");
+  optionsDiv.style.display = optionsDiv.style.display === "block" ? "none" : "block";
+});
+
+// Fecha dropdown ao clicar fora
+document.addEventListener("click", (e) => {
+  const wrapper = document.querySelector(".custom-select-wrapper");
+  if(!wrapper.contains(e.target)){
+    document.getElementById("customOptions").style.display = "none";
+  }
+});
+
+function validarTexto(str){ const regex = /^[A-ZÀ-Ú\s]+$/; return regex.test(str); }
+
+document.getElementById("formPresente").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  let nome = document.getElementById("nome").value.trim().toUpperCase();
+  let sobrenome = document.getElementById("sobrenome").value.trim().toUpperCase();
+
+  if (!validarTexto(nome) || !validarTexto(sobrenome)) {
+    alert("⚠️ Digite apenas letras e espaços em Nome e Sobrenome."); return;
+  }
+  if(!presenteSelecionado){
+    alert("⚠️ Selecione um presente."); return;
+  }
+
+  await fetch(apiUrl, { method:"POST", body: JSON.stringify({nome, sobrenome, presente:presenteSelecionado}) });
+  alert("✅ Obrigado! Seu presente foi reservado com sucesso.");
+  carregarPresentes();
+  document.getElementById("nome").value = "";
+  document.getElementById("sobrenome").value = "";
+  presenteSelecionado = null;
+  document.getElementById("customSelect").textContent = "Selecione um presente";
+});
+
+carregarPresentes();
+</script>
+</body>
+</html>
