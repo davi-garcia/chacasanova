@@ -436,4 +436,7 @@
   max-width: 600px;  /* Você pode ajustar esse valor */
   margin: 40px auto; /* 40px em cima/baixo, e 'auto' nas laterais para centralizar */
 }
+#entrada {
+  margin-top: 100px;  
+                     /* Ajuste 80px se quiser mais ou menos espaço. */
 }
