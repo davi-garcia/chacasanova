@@ -1,39 +1,98 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>🎁 Chá de Casa Nova - Davi & Gabriel🎁</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; }
-  body { background: linear-gradient(135deg, #000000, #000000); color: #fff; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 30px; }
-  .container { background: #ffffffdd; color: #333; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); padding: 30px 25px; max-width: 620px; width: 100%; text-align: center; animation: fadeIn 1s ease; }
-  h1 { font-size: 1.8rem; margin-bottom: 5px; color: #2575fc; }
-  h2 { font-size: 1.2rem; margin-bottom: 15px; color: #444; }
-  p.subtitle { font-size: 1rem; margin-bottom: 20px; color: #555; }
-  label { display: block; text-align: left; margin: 12px 0 6px; font-weight: bold; color: #444; }
-  input { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ccc; font-size: 1rem; outline: none; text-transform: uppercase; transition: 0.3s; }
-  input:focus { border-color: #2575fc; box-shadow: 0 0 6px #2575fc55; }
-
-  /* Custom select */
-  .custom-select-wrapper { position: relative; width: 100%; margin-top: 5px; }
-  .custom-select { background: linear-gradient(135deg, #2575fc, #6a11cb); color: #fff; font-weight: bold; border-radius: 10px; cursor: pointer; padding: 12px; user-select: none; }
-  .custom-select:after { content: "▼"; float: right; margin-right: 10px; }
-  .custom-options { position: absolute; top: 100%; left: 0; right: 0; background: linear-gradient(135deg, #2575fc, #6a11cb); border-radius: 0 0 10px 10px; max-height: 200px; overflow-y: auto; display: none; z-index: 10; color: #fff; }
-  .custom-option { padding: 12px; cursor: pointer; color: #fff; }
-  .custom-option:hover { background: rgba(255,255,255,0.2); }
-
-  .contador { margin-top: 20px; padding: 14px; border-radius: 12px; background: linear-gradient(135deg, #ff9966, #ff5e62); color: #fff; font-size: 1rem; font-weight: bold; box-shadow: 0 6px 15px rgba(0,0,0,0.2); }
-  button { width: 100%; padding: 14px; margin-top: 20px; border: none; border-radius: 12px; background: linear-gradient(135deg, #2575fc, #6a11cb); color: #fff; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: 0.3s; }
-  button:hover { transform: scale(1.05); box-shadow: 0 6px 15px rgba(0,0,0,0.2); }
-
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-  @media (max-width: 500px) { .container { padding: 25px 20px; } h1 { font-size: 1.5rem; } }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chá de Casa Nova</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="container">
+
+<div class="sobrenos">
+  <!-- Splash -->
+  <div id="splash-screen">
+    <span id="splash-message"></span>
+  </div>
+
+  <!-- Navbar -->
+  <nav>
+    <a href="#sobre-nos">Sobre nós 💕</a>
+    <a href="#entrada">Lista de Presentes 🎁</a>
+  </nav>
+
+  <!-- Seção Sobre nós -->
+  <section id="sobre-nos">
+    <h1>Sobre nós 💕</h1>
+    <div class="sobre-container">
+      <img src="./foto_casal.jpeg" alt="Foto do casal">
+      <div class="sobre-texto">
+        <h4>Olá, seja bem vindo! Se você está nesse site, significa que você foi convidado para participar desse momento extremamente especial!</h4>
+      <h4>Este momento será onde compartilharemos essa alegria com nossos amigos e familiares
+          e estamos felizes por ter você fazendo parte dessa história.
+        </h4>
+        <h4>
+          Este site é um jeito de deixar tudo mais fácil: você encontra os presentes, confirma sua presença 
+          e ainda pode conhecer um pouco mais da nossa historia. 💖
+        </h4>
+      </div>
+    </div>
+  </section>
+    <h1 style="text-align:center;">A jornada até aqui</h1>
+
+  <div class="timeline">
+    <div class="timeline-event">
+      <img src="./O começo.jpeg" alt="Nos conhecemos">
+      <div class="dot"></div>
+      <h3><b>Nosso começo</b></h3>
+      <h5>Em seu trabalho <3</h5>
+    </div>
+
+    <div class="timeline-event">                                    
+      <img src="./Amor.jpeg" alt="Nos apaixonamos">
+      <div class="dot"></div>
+      <h3><b>Nasce o amor</b></h3>
+      <h5>Quando nos apaixonamos</h5>
+    </div>
+
+    <div class="timeline-event">
+      <img src="./Barradas.jpeg" alt="Sempre curtindo nossos momentos juntos">
+      <div class="dot"></div>
+      <h3><b>Companheirismo</b></h3>
+      <h5>Sempre curtindo nossos momentos juntos</h5>
+    </div>
+
+    <div class="timeline-event">
+      <img src="./Reconhecimento de passos.jpeg" alt="Sempre nos momentos importantes, um para o outro">
+      <div class="dot"></div>
+      <h3><b>Parceria</b></h3>
+      <h5>Sempre nos momentos importantes, um para o outro</h5>
+    </div>
+    
+    
+    <div class="timeline-event">
+      <img src="./fotocasal2.jpeg" alt="Nossa conquista">
+      <div class="dot"></div>
+      <h3><b>Nossa conquista</b></h3>
+      <h5>Quando conquistamos nossa independência</h5>
+    </div>
+    
+    <div class="timeline-event">
+      <img src="./O pedido.jpeg" alt="Chegou a hora">
+      <div class="dot"></div>
+      <h3><b>Namoro</b></h3>
+      <h5>Finalmente chegou a hora</h5>
+    </div>
+  </br>    
+ </br> 
+  </br> 
+</div>
+ 
+  <!-- Entrada de nome -->
+  <div id="entrada">
+  
+<div class="container2">
   <h1>🎉 Chá de Casa Nova 🎉</h1>
   <h2>💙 Davi & Gabriel 💙</h2>
   <p class="subtitle">Preencha seus dados e escolha um presente:</p>
@@ -57,10 +116,11 @@
 
     <p class="subtitle">Início: Às 13h00min!</p>
     <p class="subtitle">Endereço: Rua Rosário 91 B Cabuçu, 26291-236</p>
-   
+  </form>
+</div>
 
-  <center>
-  
+
+<center>
   <iframe 
   src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d709.2062218648955!2d-43.54009693720192!3d-22.76884262233587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjLCsDQ2JzA3LjIiUyA0M8KwMzInMjMuNiJX!5e0!3m2!1spt-BR!2sbr!4v1761583552577!5m2!1spt-BR!2sbr" 
   width="100%" 
@@ -69,7 +129,7 @@
   allowfullscreen="" 
   loading="lazy" 
   referrerpolicy="no-referrer-when-downgrade">
-</iframe>
+  </iframe>
 </center>
 
 </div>
@@ -141,5 +201,55 @@ document.getElementById("formPresente").addEventListener("submit", async (e) => 
 
 carregarPresentes();
 </script>
+    
+
+  <script>
+  const frases = [
+    "Bem-vindo ao nosso site",
+    "'As muitas águas não poderiam apagar o amor' - Cânticos 8:7",
+  ];
+
+  let i = 0;
+  const msg = document.getElementById("splash-message");
+  const splash = document.getElementById("splash-screen");
+
+  function mostrarFrase() {
+    msg.style.opacity = "0";
+    setTimeout(() => {
+      msg.innerText = frases[i];
+      msg.style.opacity = "1";
+      i++;
+    }, 1100);
+  }
+
+  msg.innerText = frases[i];
+  msg.style.opacity = "1";
+  i++;
+
+  setInterval(() => {
+    if (i < frases.length) {
+      mostrarFrase();
+    }
+  }, 7000);
+
+  const tempoTotal = frases.length * 5500;
+
+  setTimeout(() => {
+    splash.style.opacity = "0";
+    setTimeout(() => {
+      splash.style.display = "none";
+    }, 1500);
+  }, tempoTotal);
+
+  function salvarNome() {
+    const nome = document.getElementById("nomeConvidado").value.trim();
+    if (nome) {
+      localStorage.setItem("convidado", nome);
+      window.location.href = "produtos.html";
+    } else {
+      alert("Por favor, digite seu nome.");
+    }
+  }
+  </script>
 </body>
 </html>
