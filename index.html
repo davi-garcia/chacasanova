@@ -190,24 +190,6 @@ document.getElementById("formPresente").addEventListener("submit", async (e) => 
     alert("⚠️ Selecione um presente."); return;
   }
 
-// NOVO: Desabilita o botão
-  botaoSubmit.disabled = true;
-
-  // NOVO: Define o contador e o intervalo
-  let segundosRestantes = 8;
-  botaoSubmit.textContent = `Aguarde ${segundosRestantes}s...`;
-
-  const intervalo = setInterval(() => {
-    segundosRestantes--;
-    botaoSubmit.textContent = `Aguarde ${segundosRestantes}s...`;
-
-    if (segundosRestantes <= 0) {
-      clearInterval(intervalo);
-      botaoSubmit.disabled = false; // Reabilita o botão
-      botaoSubmit.textContent = textoOriginalBotao; // Restaura o texto original
-    }
-  }, 1000); // 1000ms = 1 segundo
-
   await fetch(apiUrl, { method:"POST", body: JSON.stringify({nome, sobrenome, presente:presenteSelecionado}) });
   alert("✅ Obrigado! Seu presente foi reservado com sucesso.");
   carregarPresentes();
