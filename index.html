@@ -96,7 +96,7 @@
   <h2>💙 Davi & Gabriel 💙</h2>
   <p class="subtitle">Preencha seus dados e escolha um presente:</p>
 
-  <div class="formulario2"
+  <div class="formulario2">
     <form id="formPresente">
       <label for="nome">Nome</label>
       <input type="text" id="nome" required>
@@ -105,12 +105,12 @@
       <input type="text" id="sobrenome" required>
 
       <label for="presente">Escolha um presente</label>
-      <div class="custom-select-wrapper">
-      <div class="custom-select" id="customSelect">Selecione um presente</div>
-      <div class="custom-options" id="customOptions"></div>
-      </div>
+      <label class="custom-select-wrapper"></label>
+      <label class="custom-select" id="customSelect">Selecione um presente</label>
+      <label class="custom-options" id="customOptions"></label>
 
-      <div id="contador" class="contador">🎁 Presentes disponíveis: 3</div>
+
+      <label id="contador" class="contador">🎁 Presentes disponíveis: 3</label>
 
       <button type="submit">Confirmar Presença 💝</button> </br></br>
 
@@ -121,17 +121,15 @@
 </div>
 
 
-<center>
-  <iframe 
-  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d709.2062218648955!2d-43.54009693720192!3d-22.76884262233587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjLCsDQ2JzA3LjIiUyA0M8KwMzInMjMuNiJX!5e0!3m2!1spt-BR!2sbr!4v1761583552577!5m2!1spt-BR!2sbr" 
-  width="100%" 
-  height="450" 
-  style="max-width: 600px; border:0;" 
-  allowfullscreen="" 
-  loading="lazy" 
-  referrerpolicy="no-referrer-when-downgrade">
+<div style="text-align: center;"
+  <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d709.2062218648955!2d-43.54009693720192!3d-22.76884262233587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjLCsDQ2JzA3LjIiUyA0M8KwMzInMjMuNiJX!5e0!3m2!1spt-BR!2sbr!4v1761583552577!5m2!1spt-BR!2sbr" 
+    width="100%" 
+    height="450" 
+    style="max-width: 600px; border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
   </iframe>
-</center>
 
 </div>
 
@@ -202,7 +200,7 @@ document.getElementById("formPresente").addEventListener("submit", async (e) => 
 
 carregarPresentes();
 </script>
-    
+
 
   <script>
   const frases = [
