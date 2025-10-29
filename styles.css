@@ -440,3 +440,8 @@
   margin-top: 100px;  
                      /* Ajuste 80px se quiser mais ou menos espaço. */
 }
+.mapa {
+  display: block;
+  margin: 0 auto;
+  border: 0;
+}
